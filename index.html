@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automate Your Business With Free AI Agents — Live Webinar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --primary: #6c5ce7;
+    --primary-glow: rgba(108, 92, 231, 0.3);
+    --accent: #00cec9;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --bg: #0a0a12;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.06);
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  
+  .bg-grid {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      linear-gradient(rgba(108, 92, 231, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(108, 92, 231, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .bg-glow {
+    position: fixed;
+    top: -40%; left: -20%;
+    width: 80%; height: 80%;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.08) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+  
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(108, 92, 231, 0.12);
+    border: 1px solid rgba(108, 92, 231, 0.25);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 32px;
+    letter-spacing: 0.3px;
+  }
+  
+  .badge .dot {
+    width: 8px; height: 8px;
+    background: #ff4757;
+    border-radius: 50%;
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.8px;
+  }
+  
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero .subhead {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+  
+  .hero .proof {
+    font-size: 15px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+  
+  .cta-card {
+    background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,206,201,0.04));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(108,92,231,0.15);
+    border-radius: 20px;
+    padding: 44px;
+    margin-bottom: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 20%, rgba(108,92,231,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  
+  .spots {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff6b81;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  
+  .spots .count {
+    display: inline-block;
+    min-width: 24px;
+    text-align: center;
+  }
+  
+  .cta-card h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .cta-card .sub {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  
+  .cta-card .what-you-get {
+    list-style: none;
+    text-align: left;
+    max-width: 420px;
+    margin: 0 auto 28px;
+    padding: 0;
+  }
+  
+  .cta-card .what-you-get li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cta-card .what-you-get li::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), #a29bfe);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 52px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px var(--primary-glow);
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px var(--primary-glow);
+  }
+  
+  .cta-card .footnote {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-dim);
+    position: relative;
+  }
+  
+  .urgency-bar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 16px 0 24px;
+    flex-wrap: wrap;
+  }
+  
+  .urgency-item {
+    text-align: center;
+  }
+  
+  .urgency-item .num {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+  
+  .urgency-item .label {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+  
+  .section-sub {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+  
+  .systems {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+  
+  @media (min-width: 640px) {
+    .systems { grid-template-columns: 1fr 1fr; }
+  }
+  
+  .system-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  
+  .system-card:hover {
+    border-color: rgba(108, 92, 231, 0.25);
+    transform: translateY(-2px);
+  }
+  
+  .system-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .icon-lead { background: rgba(108, 92, 231, 0.15); }
+  .icon-content { background: rgba(0, 206, 201, 0.15); }
+  .icon-trend { background: rgba(253, 121, 168, 0.15); }
+  .icon-market { background: rgba(255, 234, 167, 0.15); }
+  .icon-ops { background: rgba(116, 185, 255, 0.15); }
+  
+  .system-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .system-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  
+  .value-prop {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 60px;
+  }
+  
+  @media (min-width: 640px) {
+    .value-prop { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  
+  .vp-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+  
+  .vp-card .big {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  
+  .vp-card .desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  
+  .bottom-cta {
+    text-align: center;
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(108,92,231,0.06), rgba(0,206,201,0.03));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(108,92,231,0.12);
+    border-radius: 20px;
+  }
+  
+  .bottom-cta .big-text {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .bottom-cta p {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin: 12px auto 0;
+    max-width: 500px;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+    opacity: 0.5;
+  }
+
+  .line {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(108,92,231,0.15), transparent);
+    margin: 40px 0;
+  }
+
+  .testimonial-strip {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0 24px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+  }
+  
+  .testimonial-strip::-webkit-scrollbar { display: none; }
+  
+  .testi-card {
+    flex: 0 0 280px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  
+  .testi-card .name {
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .testi-card .handle {
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+  
+  .testi-card .result {
+    color: var(--accent);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<div class="container">
+  
+  <div class="badge">
+    <span class="dot"></span>
+    🔴 LIVE • WEDNESDAY
+  </div>
+  
+  <div class="hero">
+    <h1>
+      How to Replace $2,000/mo in SaaS Tools<br>
+      <span class="highlight">With One Free AI Agent</span>
+    </h1>
+    <p class="subhead">
+      Lead gen, content research, trend alerts, market monitoring, and client ops — 
+      all automated by a single open-source agent running on a $5/month VPS.
+      Zero coding. Zero subscriptions. Live walkthrough.
+    </p>
+    <p class="proof">▲ One guy scaled $2.5k → $40k/mo by giving clients access to their own instance</p>
+  </div>
+  
+  <div class="cta-card">
+    <div class="spots">⏳ <span class="count">37</span> SPOTS REMAINING — 50 MAX</div>
+    
+    <div class="urgency-bar">
+      <div class="urgency-item">
+        <div class="num">50</div>
+        <div class="label">Seats Total</div>
+      </div>
+      <div class="urgency-item">
+        <div class="num">Live</div>
+        <div class="label">No Replay</div>
+      </div>
+      <div class="urgency-item">
+        <div class="num">$0</div>
+        <div class="label">To Attend</div>
+      </div>
+    </div>
+    
+    <h2>Get the Blueprint Before Everyone Else Does</h2>
+    <p class="sub">45 minutes. 5 systems. The exact $5/month stack. No upsells on the call.</p>
+    
+    <ul class="what-you-get">
+      <li>Systems demoed live — not slides, not theory</li>
+      <li>The setup guide (worth $47) included free for attendees</li>
+      <li>Q&A at the end — bring your niche, we'll plan your first system</li>
+    </ul>
+    
+    <a class="cta-btn" href="mailto:gregulator212@protonmail.com?subject=WEBINAR%20SEAT&body=I%20want%20a%20seat%20at%20the%20AI%20Agent%20Systems%20webinar.%20Send%20me%20the%20details.">✉️ Send Signup Email →</a>
+    <p class="footnote">I'll reply same day with the date, time, and private link. <strong>37 spots left.</strong></p>
+  </div>
+  
+  <h2 class="section-title">The 5 Systems You'll Walk Away With</h2>
+  <p class="section-sub">Each one replaces a subscription and runs on the same $5/month stack.</p>
+  
+  <div class="value-prop">
+    <div class="vp-card">
+      <div class="big">$0</div>
+      <div class="desc">Software cost after setup — everything is open source</div>
+    </div>
+    <div class="vp-card">
+      <div class="big">45m</div>
+      <div class="desc">From zero to first system running in under an hour</div>
+    </div>
+    <div class="vp-card">
+      <div class="big">$5</div>
+      <div class="desc">Monthly VPS cost. One coffee. That's it.</div>
+    </div>
+  </div>
+  
+  <div class="systems">
+    
+    <div class="system-card">
+      <div class="system-icon icon-lead">🎯</div>
+      <h3>1. Lead Gen & Outreach — On Autopilot</h3>
+      <p>
+        Your agent scrapes targets, qualifies them against your ICP, drafts 
+        hyper-personalized messages, and sequences follow-ups. You just close.
+        <br><br>
+        <strong>Replaces:</strong> $150/mo in outreach tools
+      </p>
+    </div>
+    
+    <div class="system-card">
+      <div class="system-icon icon-content">📊</div>
+      <h3>2. Content Research Engine</h3>
+      <p>
+        Feeds on your niche. Spits out winning video angles, headlines, and 
+        outlines based on what's actually performing. Turn it into content 
+        or sell the research as a service.
+        <br><br>
+        <strong>Replaces:</strong> $100/mo content research tools
+      </p>
+    </div>
+    
+    <div class="system-card">
+      <div class="system-icon icon-trend">📡</div>
+      <h3>3. Daily Trend Scouting</h3>
+      <p>
+        Monitors X, YouTube, and industry news. When a trend emerges, you get 
+        an alert before it saturates. First mover advantage on autopilot.
+        <br><br>
+        <strong>Replaces:</strong> $200/mo monitoring subscriptions
+      </p>
+    </div>
+    
+    <div class="system-card">
+      <div class="system-icon icon-market">📈</div>
+      <h3>4. Polymarket Intelligence</h3>
+      <p>
+        Watches prediction markets for meaningful moves. Sends you analysis 
+        with context. Information edge without touching the trades.
+        <br><br>
+        <strong>Replaces:</strong> Hours of daily manual scanning
+      </p>
+    </div>
+    
+    <div class="system-card">
+      <div class="system-icon icon-ops">⚡</div>
+      <h3>5. Client Operations Engine</h3>
+      <p>
+        Drop in call notes — it generates follow-ups, task lists, and reminders. 
+        Doubles your effective client capacity without adding hours.
+        <br><br>
+        <strong>Replaces:</strong> A $40k/year VA
+      </p>
+    </div>
+    
+  </div>
+
+  <hr class="line">
+  
+  <h2 class="section-title">Who This Is For</h2>
+  <p class="section-sub" style="margin-bottom: 24px;">Not for everyone. Only for people who actually execute.</p>
+  
+  <div class="testimonial-strip">
+    <div class="testi-card">
+      <span class="result">"I scaled from $2.5k to $40k/month"</span>
+      by giving clients access to their own instance. Agency owner.
+      <div class="name">— Reddit r/agency</div>
+    </div>
+    <div class="testi-card">
+      <span class="result">"Replaced $800/mo in subscriptions"</span>
+      with one agent. Lead gen, email, scheduling — all in one stack.
+      <div class="name">— r/Entrepreneur</div>
+    </div>
+    <div class="testi-card">
+      <span class="result">"Setup took 20 minutes"</span>
+      and I had a fully automated research pipeline running. Never going back.
+      <div class="name">— r/SaaS</div>
+    </div>
+  </div>
+  
+  <div class="bottom-cta">
+    <div class="big-text">You've Got 37 Seats Left</div>
+    <p>
+      No pitch. No replay. Live on Wednesday. I'll show you the exact $5/month stack 
+      that replaces $2,000+ in SaaS subscriptions — and you can have it running 
+      before the weekend.
+    </p>
+    <br>
+    <a class="cta-btn" href="mailto:gregulator212@protonmail.com?subject=WEBINAR%20SEAT&body=I%20want%20a%20seat%20at%20the%20AI%20Agent%20Systems%20webinar.%20Send%20me%20the%20details.">✉️ Send Signup Email →</a>
+    <p style="margin-top: 12px; font-size: 12px; opacity: 0.6;">Seats go to the first 50 replies. No exceptions.</p>
+  </div>
+  
+  <div class="footer">
+    No slides. No fluff. 5 running systems. 45 minutes. • Limited to 50 seats
+  </div>
+  
+</div>
+</body>
+</html>

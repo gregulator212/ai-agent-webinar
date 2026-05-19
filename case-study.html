@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — 10 AI Agent Systems Running on $5/mo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --primary: #6c5ce7; --accent: #00cec9; --text: #e8e8f0; --text-dim: #8888a0; --bg: #0a0a12; --card: rgba(255,255,255,0.04); --border: rgba(255,255,255,0.06); }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6; }
+  .bg-grid { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(108,92,231,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(108,92,231,0.03) 1px, transparent 1px); background-size: 60px 60px; z-index: 0; pointer-events: none; }
+  .container { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+  .hero h1 { font-size: clamp(2rem,4vw,2.8rem); font-weight: 900; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .hero .meta { font-size: 14px; color: var(--text-dim); margin-bottom: 40px; }
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 16px; margin-bottom: 48px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; }
+  .stat .num { font-size: 36px; font-weight: 900; color: var(--primary); }
+  .stat .label { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+  .system { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin-bottom: 16px; }
+  .system h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .system p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+  .system .cost { display: inline-block; margin-top: 8px; font-size: 13px; background: rgba(0,206,201,0.1); color: var(--accent); padding: 4px 12px; border-radius: 6px; }
+  .footer { text-align: center; font-size: 13px; color: var(--text-dim); opacity: 0.5; padding: 40px 0; }
+  hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(108,92,231,0.15), transparent); margin: 40px 0; }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="container">
+  <div class="hero">
+    <h1>10 AI Agent Systems Running on $5/month</h1>
+    <p class="meta">Setup time: 90 minutes · Monthly cost: $25 · Systems running 24/7</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">10</div><div class="label">Systems Running</div></div>
+    <div class="stat"><div class="num">$25</div><div class="label">Total Monthly Cost</div></div>
+    <div class="stat"><div class="num">~20h</div><div class="label">Hours Saved/Week</div></div>
+    <div class="stat"><div class="num">24/7</div><div class="label">Autonomous Operation</div></div>
+  </div>
+
+  <h2 style="margin-bottom:20px;">The Systems</h2>
+
+  <div class="system">
+    <h3>🎯 1. Lead Gen & Outreach</h3>
+    <p>Scrapes X/Twitter for founders building in public, qualifies against ICP, drafts personalized outreach. Runs every 12 hours. Results delivered to Telegram.</p>
+    <span class="cost">Replaces: $50/mo outreach tools</span>
+  </div>
+
+  <div class="system">
+    <h3>👁 2. Competitor Monitor</h3>
+    <p>Tracks websites, social feeds, and reviews for 3 competitors (OpenAI, Anthropic, and counting). Generates weekly intelligence report with suggested counter-moves.</p>
+    <span class="cost">Replaces: $40/mo monitoring services</span>
+  </div>
+
+  <div class="system">
+    <h3>📡 3. Trend Scout</h3>
+    <p>Monitors X, YouTube, news, Reddit, HN, and Product Hunt. Detects breakout trends before they saturate. First-mover window alerts pushed to your phone.</p>
+    <span class="cost">Replaces: $30/mo trend tools</span>
+  </div>
+
+  <div class="system">
+    <h3>📊 4. Content Research Engine</h3>
+    <p>Analyzes top-performing content in any niche. Generates video angles, headlines, and full outlines ready to produce. Platform-specific recommendations.</p>
+    <span class="cost">Replaces: $25/mo content planning</span>
+  </div>
+
+  <div class="system">
+    <h3>📈 5. Polymarket Intelligence</h3>
+    <p>Scans prediction markets for significant moves. Alerts on patterns exceeding 15% daily movement. Analysis included — no trading required.</p>
+    <span class="cost">Replaces: $55/mo research feeds</span>
+  </div>
+
+  <div class="system">
+    <h3>📰 6. Newsletter Engine</h3>
+    <p>Pulls from sources, distills into categorized sections, formats full HTML issues. Ready to send to subscribers. Affiliate link tracking built in.</p>
+    <span class="cost">Replaces: $30/mo newsletter platforms</span>
+  </div>
+
+  <div class="system">
+    <h3>🤖 7. Customer Support Bot</h3>
+    <p>Knowledge base with 14+ FAQs across 4 categories. Auto-matches questions, creates tickets, escalates unresolved issues. Ready for Discord/Slack/Telegram.</p>
+    <span class="cost">Replaces: $50/mo support tools</span>
+  </div>
+
+  <div class="system">
+    <h3>🔍 8. Job Board Scanner</h3>
+    <p>Scrapes listings matching your skills/profile. Scores by fit. Preps tailored applications with cover letters. Sell to job seekers or use for yourself.</p>
+    <span class="cost">Replaces: $20/mo job matching</span>
+  </div>
+
+  <div class="system">
+    <h3>💡 9. Product Idea Generator</h3>
+    <p>Feed it niche + audience + past winners. Returns validated concepts with scoring and go-to-market steps. Generates 3 ideas per run.</p>
+    <span class="cost">Value: $200+ per validated idea</span>
+  </div>
+
+  <div class="system">
+    <h3>📝 10. Outreach Template Library</h3>
+    <p>4 channels, 10 variants. Cold DM, warm email, webinar invites, follow-up sequences. All written for the AI/solopreneur niche. Customizable per client.</p>
+    <span class="cost">Replaces: $15/mo template services</span>
+  </div>
+
+  <hr>
+
+  <h2 style="margin-bottom:16px;">The Bottom Line</h2>
+  <p style="color:var(--text-dim); margin-bottom:24px;">
+    <strong style="color:var(--text);">Total replaced:</strong> $315/mo in SaaS subscriptions<br>
+    <strong style="color:var(--text);">Total cost:</strong> $25/mo (VPS + API)<br>
+    <strong style="color:var(--text);">Net savings:</strong> $290/mo<br>
+    <strong style="color:var(--text);">Hours saved:</strong> ~20/week<br>
+    <strong style="color:var(--text);">Revenue generated:</strong> Setup packages starting at $97
+  </p>
+
+  <p style="color:var(--text-dim); font-size:14px;">
+    All systems run on one $5/mo DigitalOcean VPS. All open source. All set up in one session.
+  </p>
+
+  <div class="footer">Built in one 8-hour session. Running forever.</div>
+</div>
+</body>
+</html>
